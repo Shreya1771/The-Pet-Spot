@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.header {
+    text-align: center;
+    padding: 32px;
+}
+
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.column img {
+    margin-left: : 8px;
+    vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+    .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+    }
+}
+.column img:hover {
+    opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* The expanding image container */
+.container {
+    position: relative;
+    display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+    position: absolute;
+    left: 10px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Images</h1>
+</div>
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:50%">
+  <div id="imgtext"></div>
+</div>
+
+<div>
+<!-- Photo Grid -->
+<div class="row" style="margin-left: 250px;">
+
+  <div class="column">
+    <img src="img\lab.jpg" style="width:100%" onclick="myFunction(this);">
+    <img src="img\Shih Tzu.jpg" style="width:100%" onclick="myFunction(this);">
+    <img src="img\husky.jpg" style="width:100%" onclick="myFunction(this);">
+  </div> 
+
+  <div class="column">
+    <img src="img\german.jpg" style="width:100%" onclick="myFunction(this);">
+    <img src="img\pome.jpg" style="width:100%" onclick="myFunction(this);">
+    <img src="img\pug.jpg" style="width:100%" onclick="myFunction(this);">
+  </div>
+
+  <div class="column">
+    <img src="img\retriver.jpg" style="width:100%" onclick="myFunction(this);">
+    <img src="img\lasa.jpg" style="width:100%" onclick="myFunction(this);">
+    <img src="img\doberman.jpg" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+</div>
+
+<script>
+function myFunction(imgs) {
+    var expandImg = document.getElementById("expandedImg");
+    var imgText = document.getElementById("imgtext");
+    expandImg.src = imgs.src;
+    imgText.innerHTML = imgs.alt;
+    expandImg.parentElement.style.display = "block";
+}
+</script>
+
+</body>
+</html>
